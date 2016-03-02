@@ -147,7 +147,7 @@ public class MSButton
             displayLosingMessage();
 
         }else if(countBombs(r,c)>0){
-            label=Integer.toString(countBombs(r,c));
+            label=""+countBombs(r,c);
         }
         else
         {
