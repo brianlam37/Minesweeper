@@ -4,7 +4,7 @@ import de.bezier.guido.*;
 //Declare and initialize NUM_ROWS and NUM_COLS = 20
 public final static int NUM_ROWS = 20;
 public final static int NUM_COLS = 20;
-public final static int NUM_BOMBS =2;
+public final static int NUM_BOMBS =20;
 
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs; //ArrayList of just the minesweeper buttons that are mined
@@ -60,12 +60,12 @@ public boolean isWon()
     //your code here
     for(int i=0;i<NUM_ROWS;i++){
         for(int j=0;j<NUM_COLS;j++){
-            if(buttons[i][j].isClicked()==true&&!bombs.contains(buttons[i][j])){
-                return true;
+            if(!buttons[i][j].isClicked()==true&&!bombs.contains(buttons[i][j])){
+                return false;
             }
         }
     }
-    return false;
+    return true;
 }
 public void displayLosingMessage()
 {
@@ -90,7 +90,7 @@ public void displayLosingMessage()
 public void displayWinningMessage()
 {
     //your code here
-    println("akakaka");
+   
                     buttons[0][0].setLabel("!");
                     buttons[0][1].setLabel("L");
                     buttons[0][2].setLabel("o");
@@ -159,6 +159,14 @@ public class MSButton
             buttons[r-1][c].mousePressed();
           if(isValid(r+1,c) && !buttons[r+1][c].isClicked())
             buttons[r+1][c].mousePressed();
+          if(isValid(r-1,c-1) && !buttons[r-1][c-1].isClicked())
+            buttons[r-1][c-1].mousePressed();
+          if(isValid(r+1,c+1) && !buttons[r+1][c+1].isClicked())
+            buttons[r+1][c+1].mousePressed();
+          if(isValid(r-1,c+1) && !buttons[r-1][c+1].isClicked())
+            buttons[r-1][c+1].mousePressed();
+          if(isValid(r+1,c-1) && !buttons[r+1][c-1].isClicked())
+            buttons[r+1][c-1].mousePressed();
 
     }
 }
