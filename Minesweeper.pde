@@ -74,6 +74,7 @@ public void displayLosingMessage()
         for(int i=0;i<NUM_ROWS;i++){
         for(int j=0;j<NUM_COLS;j++){
             if(!buttons[i][j].isClicked()&&bombs.contains(buttons[i][j])){
+                buttons[i][j].marked=false;
                 buttons[i][j].clicked=true;
                     buttons[0][0].setLabel("L");
                     buttons[0][1].setLabel("o");
@@ -152,7 +153,7 @@ public class MSButton
         else
         {
          
-            if(isValid(r,c-1) && !buttons[r][c-1].isClicked())
+          if(isValid(r,c-1) && !buttons[r][c-1].isClicked())
             buttons[r][c-1].mousePressed();
           if(isValid(r,c+1) && !buttons[r][c+1].isClicked())
             buttons[r][c+1].mousePressed();
